@@ -4,16 +4,22 @@ public:
         int n=nums.size();
         int l=0;
         int mini=INT_MAX;
-        int sum=0;
+        int ps=0;
         for(int r=0;r<n;r++){
-            sum+=nums[r];
-            while(sum>=target){
+            ps+=nums[r];
+            while(ps>=target){
                 mini=min(mini,r-l+1);
-                sum-=nums[l];
+                ps-=nums[l];
                 l++;
             }
 
         }
-        return mini==INT_MAX?0:mini;
+     if(mini==INT_MAX){
+        return 0;
+     }
+     else{
+        return mini;
+     }
+    
     }
 };
